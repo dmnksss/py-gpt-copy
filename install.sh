@@ -50,7 +50,7 @@ INSTALL_DIR="/usr/local/lib/python3$(python3 -c 'import sys; print(sys.version_i
 # Clone the repository
 TEMP_DIR=$(mktemp -d)
 echo_info "Downloading copy-module script from the repository..."
-git clone https://github.com/your_username/copy-module.git "$TEMP_DIR"
+git clone git@github.com:dmnksss/py-recursive-context-for-gpt.git "$TEMP_DIR"
 
 # Navigate to the project directory
 cd "$TEMP_DIR"
