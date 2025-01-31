@@ -28,19 +28,6 @@ for cmd in "${REQUIRED_CMDS[@]}"; do
     fi
 done
 
-# Check for pip3 installation
-if ! command_exists pip3; then
-    echo_info "pip3 not found. Attempting to install pip3."
-    curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-    python3 get-pip.py --user
-    export PATH="$HOME/.local/bin:$PATH"
-    if ! command_exists pip3; then
-        echo_error "Failed to install pip3. Please install pip3 manually."
-        exit 1
-    fi
-    rm get-pip.py
-fi
-
 # Install necessary system dependencies for pyperclip (for Linux)
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     if ! command_exists xclip && ! command_exists xsel; then
