@@ -20,25 +20,12 @@ For convenient global installation of `py-gpt-copy` on your system, follow these
 Open your terminal and execute the following command:
 
 ```bash
-   wget -O - https://raw.githubusercontent.com/dmnksss/py-gpt-copy/refs/heads/main/install.sh | bash
+sudo curl -L https://raw.githubusercontent.com/dmnksss/py-gpt-copy/refs/heads/main/copy_module.py -o /usr/local/bin/py-gpt-copy && sudo chmod +x /usr/local/bin/py-gpt-copy
 ````
-Explanation:
-- wget -O -: Downloads the file and outputs it to standard output.
-- ash: Pipes the downloaded script to the bash interpreter for execution.
-2. Permission Prompt:
-The script may prompt you for your password to gain sudo privileges required for installing global packages and system dependencies.
-
-3. Verify Installation:
-After installation, ensure that the py-gpt-copy command is available:
-
+2. 
+3. **Verify Installation:**
 ```bash
 which py-gpt-copy
-```
-
-Expected output:
-
-```bash
-/usr/local/bin/py-gpt-copy
 ```
 
 ## Usage
@@ -49,9 +36,8 @@ Syntax
 
 ```bash
 py-gpt-copy <module_name_or_path> [--debug]
-
-	•	<module_name_or_path>: The name of the module or the path to the Python file whose dependencies you want to copy.
-	•	--debug: (Optional) Enables detailed logging for debugging purposes.
+<module_name_or_path>: The name of the module or the path to the Python file whose dependencies you want to copy.
+--debug: (Optional) Enables detailed logging for debugging purposes.
 ```
 
 ### Examples
