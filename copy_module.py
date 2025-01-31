@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import ast
+import sys
 import importlib
 import importlib.util
 import logging
@@ -10,7 +11,6 @@ try:
     import pyperclip
 except ImportError:
     import subprocess
-    import sys
     subprocess.check_call([sys.executable, "-m", "pip", "install", "pyperclip"])
     import pyperclip
 
