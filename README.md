@@ -1,7 +1,7 @@
 
-# copy-module
+# py-gpt-copy
 
-`copy-module` is a command-line utility that recursively copies all imported project files and places their combined contents into the clipboard.
+`py-gpt-copy` is a command-line utility that recursively copies all imported project files and places their combined contents into the clipboard.
 It can be helpful when you need to share a module’s dependencies with chatgpt or other AI to generate well mocked tests.
 
 ## Installation
@@ -13,14 +13,14 @@ It can be helpful when you need to share a module’s dependencies with chatgpt 
 
 ### Global Installation via Installation Script
 
-For convenient global installation of `copy-module` on your system, follow these steps:
+For convenient global installation of `py-gpt-copy` on your system, follow these steps:
 
 1. **Download and Run the Installation Script:**
 
 Open your terminal and execute the following command:
 
 ```bash
-   wget -O - https://raw.githubusercontent.com/your_username/copy-module/main/install.sh | bash
+   wget -O - https://raw.githubusercontent.com/your_username/py-gpt-copy/main/install.sh | bash
 ````
 Explanation:
 - wget -O -: Downloads the file and outputs it to standard output.
@@ -29,26 +29,26 @@ Explanation:
 The script may prompt you for your password to gain sudo privileges required for installing global packages and system dependencies.
 
 3. Verify Installation:
-After installation, ensure that the copy-module command is available:
+After installation, ensure that the py-gpt-copy command is available:
 
 ```bash
-which copy-module
+which py-gpt-copy
 ```
 
 Expected output:
 
 ```bash
-/usr/local/bin/copy-module
+/usr/local/bin/py-gpt-copy
 ```
 
 ## Usage
 
-After installation, you can use the copy-module command in your terminal.
+After installation, you can use the py-gpt-copy command in your terminal.
 
 Syntax
 
 ```bash
-copy-module <module_name_or_path> [--debug]
+py-gpt-copy <module_name_or_path> [--debug]
 
 	•	<module_name_or_path>: The name of the module or the path to the Python file whose dependencies you want to copy.
 	•	--debug: (Optional) Enables detailed logging for debugging purposes.
@@ -59,19 +59,19 @@ copy-module <module_name_or_path> [--debug]
 1. Copying Dependencies by Module Name:
 
 ```bash
-copy-module my_module
+py-gpt-copy my_module
 ```
 
 2.	Copying Dependencies by File Path:
 
 ```bash
-copy-module path/to/my_module.py
+py-gpt-copy path/to/my_module.py
 ```
 
 3.	Enabling Detailed Logging:
 
 ```bash
-copy-module my_module --debug
+py-gpt-copy my_module --debug
 ```
 
 

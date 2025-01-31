@@ -49,19 +49,19 @@ INSTALL_DIR="/usr/local/lib/python3$(python3 -c 'import sys; print(sys.version_i
 
 # Clone the repository
 TEMP_DIR=$(mktemp -d)
-echo_info "Downloading copy-module script from the repository..."
-git clone git@github.com:dmnksss/py-recursive-context-for-gpt.git "$TEMP_DIR"
+echo_info "Downloading py-gpt-copy script from the repository..."
+git clone git@github.com:dmnksss/py-gpt-copy.git "$TEMP_DIR"
 
 # Navigate to the project directory
 cd "$TEMP_DIR"
 
 # Install the package globally
-echo_info "Installing copy-module globally..."
+echo_info "Installing py-gpt-copy globally..."
 sudo pip3 install .
 
 # Clean up the temporary directory
 cd ~
 rm -rf "$TEMP_DIR"
 
-echo_info "copy-module has been successfully installed and is available globally!"
-echo_info "You can run it using the command: copy-module"
+echo_info "py-gpt-copy has been successfully installed and is available globally!"
+echo_info "You can run it using the command: py-gpt-copy"
