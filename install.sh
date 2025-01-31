@@ -59,13 +59,21 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     fi
 fi
 
-# Install the package globally via pip3 from GitHub using HTTPS
-echo_info "Installing py-gpt-copy globally via pip3..."
-sudo pip3 install git+https://github.com/dmnksss/py-gpt-copy.git
+# Clone the repository
+TEMP_DIR=$(mktemp -d)
+echo_info "Downloading py-gpt-copy script from the repository..."
+git clone git@github.com:dmnksss/py-gpt-copy.git "$TEMP_DIR"
+
+# Navigate to the project directory
+cd "$TEMP_DIR"
 
 # Ensure that /usr/local/bin is in PATH
 sudo cp copy_module.py /usr/local/bin/py-gpt-copy
 sudo chmod +x /usr/local/bin/py-gpt-copy
+
+# Clean up the temporary directory
+cd ~
+rm -rf "$TEMP_DIR"
 
 # Verify installation
 if command_exists py-gpt-copy; then
