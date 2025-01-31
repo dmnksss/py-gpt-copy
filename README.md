@@ -20,7 +20,7 @@ For convenient global installation of `py-gpt-copy` on your system, follow these
 Open your terminal and execute the following command:
 
 ```bash
-   wget -O - https://raw.githubusercontent.com/your_username/py-gpt-copy/main/install.sh | bash
+   wget -O - https://raw.githubusercontent.com/dmnksss/py-gpt-copy/refs/heads/main/install.sh | bash
 ````
 Explanation:
 - wget -O -: Downloads the file and outputs it to standard output.

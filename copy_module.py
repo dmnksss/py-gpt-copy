@@ -1,10 +1,9 @@
 #!/usr/bin/env python3
-import sys
+import ast
 import importlib
 import importlib.util
-import ast
-from pathlib import Path
 import logging
+from pathlib import Path
 
 # Попытка импортировать pyperclip и установка, если отсутствует
 try:
