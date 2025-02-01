@@ -1,7 +1,7 @@
 # py-gpt-copy
 
-[![Python Version](https://img.shields.io/badge/python-3.8%2B-blue.svg)](https://www.python.org/downloads/)
-[![License: MIT](https://img.shields.io/badge/License-APACHE-yellow.svg)](LICENSE)
+[![Python Version](https://img.shields.io/badge/python-3.6%2B-blue.svg)](https://www.python.org/downloads/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 `py-gpt-copy` is a command-line utility that recursively gathers all imported project files and copies their combined contents to your clipboard. This makes it easy to share your module’s dependencies—perfect for generating well-mocked tests, debugging complex import structures, or sharing code with AI assistants like ChatGPT.
 
@@ -13,6 +13,8 @@
 - [Use Cases](#use-cases)
 - [Installation](#installation)
 - [Usage](#usage)
+  - [Examples](#examples)
+  - [Clipboard Output Example](#clipboard-output-example)
 - [How It Works](#how-it-works)
 - [Development](#development)
 - [Testing](#testing)
@@ -72,7 +74,7 @@ Once installed, use the command-line tool as follows:
 py-gpt-copy <module_name_or_path> [--debug]
 ```
 
-- **`<module_name_or_path>`**: Name of the module or the path to a Python file.
+- **`<module_name_or_path>`**: The name of the module or the path to a Python file.
 - **`--debug`**: *(Optional)* Enable detailed logging for troubleshooting.
 
 ### Examples
@@ -95,19 +97,43 @@ py-gpt-copy <module_name_or_path> [--debug]
     py-gpt-copy my_module --debug
     ```
 
-After execution, the tool will analyze the file, recursively gather all imported files within the project, format them with file headers, and copy the combined content to your clipboard.
+After execution, the tool analyzes the target file, recursively collects all dependent files within the project, formats each file with a header comment indicating its relative path, and copies the combined content to your clipboard.
 
-#### Sample Output
+### Clipboard Output Example
+
+The clipboard will contain a concatenated output of all processed files. For example, if your project includes two files:
+
+1. **`client/domain/service/task_logger.py`**
+
+    ```python
+    def log_task(message):
+        print("Logging: " + message)
+    ```
+
+2. **`client/domain/usecase/log_task_status.py`**
+
+    ```python
+    from client.domain.service.task_logger import log_task
+
+    def update_status(status):
+        log_task("Status updated: " + status)
+    ```
+
+The clipboard content might look like this:
 
 ```
-2025-01-31 14:30:05,000 - INFO - 
-✅ Copied 5 files:
-  → client/domain/service/task_logger.py
-  → client/domain/usecase/log_task_status.py
-  → client/domain/service/__init__.py
-  → client/domain/usecase/__init__.py
-📋 Total: 200 lines copied to clipboard
+# client/domain/service/task_logger.py
+def log_task(message):
+    print("Logging: " + message)
+
+# client/domain/usecase/log_task_status.py
+from client.domain.service.task_logger import log_task
+
+def update_status(status):
+    log_task("Status updated: " + status)
 ```
+
+Each file’s content is prefixed with its relative path (formatted as a comment), allowing you to quickly identify the origin of each code block.
 
 ---
 
@@ -126,7 +152,7 @@ After execution, the tool will analyze the file, recursively gather all imported
    The script recursively collects all dependencies, avoiding duplicates and external modules.
 
 5. **Formatting & Clipboard:**  
-   Each file’s content is prefixed with its relative file path and all contents are concatenated before being copied to the clipboard using `pyperclip`.
+   Each file’s content is prefixed with its relative file path and concatenated before being copied to the clipboard using `pyperclip`.
 
 For a detailed look at the implementation, check out the [source code](#).
 
