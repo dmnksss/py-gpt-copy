@@ -1,7 +1,7 @@
 # py-gpt-copy
 
-[![Python Version](https://img.shields.io/badge/python-3.6%2B-blue.svg)](https://www.python.org/downloads/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Python Version](https://img.shields.io/badge/python-3.8%2B-blue.svg)](https://www.python.org/downloads/)
+[![License: MIT](https://img.shields.io/badge/License-APACHE-yellow.svg)](LICENSE)
 
 `py-gpt-copy` is a command-line utility that recursively gathers all imported project files and copies their combined contents to your clipboard. This makes it easy to share your module’s dependencies—perfect for generating well-mocked tests, debugging complex import structures, or sharing code with AI assistants like ChatGPT.
 
